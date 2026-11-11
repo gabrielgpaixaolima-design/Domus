@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1794279292192,
+    "material": "Plástico",
+    "quantidade": 100,
+    "unidade": "kg",
+    "observacao": "",
+    "data": "2026-11-10T02:54:52.192Z"
+  },
+  {
+    "id": 1794280038913,
+    "material": "Papel/Papelão",
+    "quantidade": 20,
+    "unidade": "kg",
+    "observacao": "",
+    "data": "2026-11-10T03:07:18.913Z"
+  },
+  {
+    "id": 1794280202769,
+    "material": "Vidro",
+    "quantidade": 200,
+    "unidade": "kg",
+    "observacao": "",
+    "data": "2026-11-10T03:10:02.769Z"
+  },
+  {
+    "id": 1794281109774,
+    "material": "Papel/Papelão",
+    "quantidade": 1000,
+    "unidade": "kg",
+    "observacao": "",
+    "data": "2026-11-10T03:25:09.774Z"
+  },
+  {
+    "id": 1794281395478,
+    "material": "Metal",
+    "quantidade": 3,
+    "unidade": "kg",
+    "observacao": "",
+    "data": "2026-11-10T03:29:55.478Z"
+  }
+]

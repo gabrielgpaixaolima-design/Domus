@@ -1,0 +1,10 @@
+[10/11/2026 13:42:25,35] script iniciado 
+[10/11/2026 13:42:25,38] mysql ok, iniciando node 
+◇ injected env (6) from .env
+◇ injected env (0) from .env
+SmartTrash + MySQL em http://localhost:3000
+[10/11/2026 13:46:08,10] script iniciado 
+[10/11/2026 13:46:08,18] mysql ok, iniciando node 
+◇ injected env (6) from .env
+◇ injected env (0) from .env
+SmartTrash + MySQL em http://localhost:3000

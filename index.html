@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SmartTrash</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: Segoe UI, Arial, sans-serif; background: #eef5ef; color: #1f2d24; }
+header { background: #1b7a3d; color: #fff; text-align: center; padding: 28px 16px; }
+header h1 { font-size: 2rem; }
+header p { opacity: .9; margin-top: 4px; }
+main { max-width: 900px; margin: 24px auto; padding: 0 16px; display: grid; gap: 20px; }
+.indicadores { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.card { background: #fff; border-radius: 12px; padding: 18px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,.08); }
+.card span { display: block; font-size: 2rem; font-weight: 700; color: #1b7a3d; }
+.card small { color: #5b6b61; }
+.painel { background: #fff; border-radius: 12px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,.08); }
+.painel h2 { margin-bottom: 14px; font-size: 1.2rem; }
+form { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+label { display: flex; flex-direction: column; font-size: .9rem; font-weight: 600; gap: 4px; }
+.largo { grid-column: 1 / -1; }
+input, select, textarea { padding: 10px; border: 1px solid #c4d3c8; border-radius: 8px; font: inherit; font-weight: 400; }
+.botoes { display: flex; gap: 10px; }
+.btn { border: 0; border-radius: 8px; padding: 10px 18px; font-weight: 600; cursor: pointer; color: #fff; }
+.verde { background: #1b7a3d; }
+.cinza { background: #6c7a72; }
+.azul { background: #2563eb; padding: 6px 12px; }
+.vermelho { background: #dc2626; padding: 6px 12px; }
+#mensagem { margin-top: 10px; font-weight: 600; min-height: 1.2em; }
+#mensagem.ok { color: #1b7a3d; }
+#mensagem.erro { color: #dc2626; }
+.categorias { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
+.cat { background: #f3f8f4; border-left: 4px solid #1b7a3d; border-radius: 8px; padding: 10px 12px; }
+.cat strong { display: block; }
+.cat small { color: #5b6b61; }
+.item { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 1px solid #e3ece6; }
+.info div { color: #5b6b61; font-size: .85rem; margin-top: 2px; }
+.qtd { font-weight: 700; color: #1b7a3d; white-space: nowrap; }
+.acoes { display: flex; gap: 6px; }
+.vazio { color: #5b6b61; text-align: center; padding: 16px; }
+footer { text-align: center; padding: 16px; color: #1b7a3d; font-weight: 600; font-size: .85rem; }
+@media (max-width: 640px) {
+  .indicadores, form { grid-template-columns: 1fr; }
+  .item { flex-direction: column; align-items: flex-start; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>SmartTrash</h1>
+  <p>Controle inteligente de descarte de resíduos</p>
+</header>
+
+<main>
+  <section class="indicadores">
+    <div class="card"><span id="totalRegistros">0</span><small>Registros</small></div>
+    <div class="card"><span id="totalKg">0</span><small>Total em kg</small></div>
+    <div class="card"><span id="totalUnidades">0</span><small>Total em unidades</small></div>
+  </section>
+
+  <section class="painel">
+    <h2 id="tituloForm">Novo descarte</h2>
+    <form id="formRegistro">
+      <input type="hidden" id="registroId">
+      <label>Categoria
+        <select id="categoria" required>
+          <option value="">Selecione...</option>
+          <option value="plastico">Plástico</option>
+          <option value="papel">Papel/Papelão</option>
+          <option value="vidro">Vidro</option>
+          <option value="metal">Metal</option>
+          <option value="organico">Orgânico</option>
+        </select>
+      </label>
+      <label>Quantidade
+        <input type="number" id="quantidade" step="0.01" min="0.01" required>
+      </label>
+      <label>Unidade
+        <select id="unidade" required>
+          <option value="kg">kg</option>
+          <option value="unidades">unidades</option>
+        </select>
+      </label>
+      <label class="largo">Observação
+        <textarea id="observacao" rows="2"></textarea>
+      </label>
+      <div class="botoes largo">
+        <button type="submit" id="btnSalvar" class="btn verde">Cadastrar</button>
+        <button type="button" id="btnCancelar" class="btn cinza" hidden>Cancelar edição</button>
+      </div>
+    </form>
+    <p id="mensagem"></p>
+  </section>
+
+  <section class="painel">
+    <h2>Totais por categoria</h2>
+    <div id="porCategoria" class="categorias"></div>
+  </section>
+
+  <section class="painel">
+    <h2>Histórico de descartes</h2>
+    <div id="lista"><p class="vazio">Carregando...</p></div>
+  </section>
+</main>
+
+<footer>Versão 2 · editar/excluir ativo</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
